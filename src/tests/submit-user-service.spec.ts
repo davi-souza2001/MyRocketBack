@@ -213,7 +213,7 @@ describe('Tests for user login', () => {
         expect(createLoginSpy).toHaveBeenCalled();
     })
 
-    it('Should not be able to submit a user login without email', async () => {
+    it('Should not be able to submit a user login without id', async () => {
 
         await expect(submitUser.executeLogin('')).rejects.toThrow();
     })

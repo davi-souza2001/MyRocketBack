@@ -93,12 +93,12 @@ export class SubmitUserService {
         })
     }
 
-    async executeLogin(email: string) {
-        if(!email) {
+    async executeLogin(id: string) {
+        if(!id) {
             throw new Error('Email is required!')
         }
 
-        const user = await this.usersRepository.login(email)
+        const user = await this.usersRepository.login(id)
 
         return user
     }
