@@ -92,4 +92,14 @@ export class SubmitUserService {
             youtube
         })
     }
+
+    async executeLogin(email: string) {
+        if(!email) {
+            throw new Error('Email is required!')
+        }
+
+        const user = await this.usersRepository.login(email)
+
+        return user
+    }
 }

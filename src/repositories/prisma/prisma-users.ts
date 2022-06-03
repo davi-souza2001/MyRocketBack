@@ -39,4 +39,14 @@ export class PrismaUsers implements Users {
             }
         })
     }
+
+    async login(email: string) {
+        const user = await prisma.user.findFirst({
+            where: {
+                email
+            }
+        })
+
+        return user
+    }
 }

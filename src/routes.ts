@@ -48,7 +48,24 @@ routes.post('/user/create', async (req, res) => {
 
         return res.status(200).json({ message: 'User created!' })
     } catch (error: any) {
-        
-        return res.status(401).json({ message: error.message });
+
+        return res.status(401).json({ message: error.message })
+    }
+})
+
+routes.post('/user/login', async (req, res) => {
+    const { email } = req.body
+
+    const prismaUsers = new PrismaUsers()
+
+    const submitUserService = new SubmitUserService(prismaUsers)
+
+    try {
+        const user = await submitUserService.executeLogin(email)
+
+        return res.status(200).json(user)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
     }
 })

@@ -2,10 +2,12 @@ import { PrismaUsers } from '../repositories/prisma/prisma-users';
 import { SubmitUserService } from '../services/user/submit-user-service';
 
 const createFeedbackSpy = jest.fn();
+const createLoginSpy = jest.fn();
 
 const submitUser = new SubmitUserService(
     {
         create: createFeedbackSpy,
+        login: createLoginSpy
     }
 )
 
@@ -200,5 +202,19 @@ describe('Tests for user submit user', () => {
             linkedin: 'generic',
             youtube: 'generic'
         })).rejects.toThrow();
+    })
+})
+
+describe('Tests for user login', () => {
+    it('Should be able to submit a user login', async () => {
+
+        await expect(submitUser.executeLogin('123')).resolves.not.toThrow();
+
+        expect(createLoginSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to submit a user login without email', async () => {
+
+        await expect(submitUser.executeLogin('')).rejects.toThrow();
     })
 })

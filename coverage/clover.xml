@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654123114359" clover="3.2.0">
-  <project timestamp="1654123114359" name="All files">
-    <metrics statements="95" coveredstatements="95" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2" elements="114" coveredelements="114" complexity="0" loc="95" ncloc="95" packages="1" files="1" classes="1"/>
-    <file name="submit-user-service.ts" path="D:\1-PROGRAMATION\2temporarios\MyRocketBack\src\services\user\submit-user-service.ts">
-      <metrics statements="95" coveredstatements="95" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2"/>
+<coverage generated="1654300065378" clover="3.2.0">
+  <project timestamp="1654300065378" name="All files">
+    <metrics statements="105" coveredstatements="105" conditionals="19" coveredconditionals="19" methods="3" coveredmethods="3" elements="127" coveredelements="127" complexity="0" loc="105" ncloc="105" packages="1" files="1" classes="1"/>
+    <file name="submit-user-service.ts" path="C:\Users\MICRO\Downloads\1Programation\1Projects\MyRocketBack\src\services\user\submit-user-service.ts">
+      <metrics statements="105" coveredstatements="105" conditionals="19" coveredconditionals="19" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -99,6 +99,16 @@
       <line num="93" count="1" type="stmt"/>
       <line num="94" count="1" type="stmt"/>
       <line num="95" count="1" type="stmt"/>
+      <line num="96" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="97" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="98" count="1" type="stmt"/>
+      <line num="99" count="1" type="stmt"/>
+      <line num="100" count="1" type="stmt"/>
+      <line num="101" count="1" type="stmt"/>
+      <line num="102" count="1" type="stmt"/>
+      <line num="103" count="1" type="stmt"/>
+      <line num="104" count="1" type="stmt"/>
+      <line num="105" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
