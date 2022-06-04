@@ -1,4 +1,3 @@
-import { PrismaUsers } from '../repositories/prisma/prisma-users';
 import { SubmitUserService } from '../services/user/submit-user-service';
 
 const createFeedbackSpy = jest.fn();
