@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654352309791" clover="3.2.0">
-  <project timestamp="1654352309791" name="All files">
+<coverage generated="1654352601129" clover="3.2.0">
+  <project timestamp="1654352601130" name="All files">
     <metrics statements="197" coveredstatements="197" conditionals="39" coveredconditionals="39" methods="6" coveredmethods="6" elements="242" coveredelements="242" complexity="0" loc="197" ncloc="197" packages="1" files="1" classes="1"/>
     <file name="submit-user-service.ts" path="C:\Users\MICRO\Downloads\1Programation\1Projects\MyRocketBack\src\services\user\submit-user-service.ts">
       <metrics statements="197" coveredstatements="197" conditionals="39" coveredconditionals="39" methods="6" coveredmethods="6"/>
