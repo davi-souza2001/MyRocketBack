@@ -49,4 +49,48 @@ export class PrismaUsers implements Users {
 
         return user
     }
+
+    async update(id: string,
+        {
+            name,
+            area,
+            avatar = '',
+            comumone,
+            description,
+            email,
+            gas,
+            github,
+            nickname,
+            seniority,
+            comumthree = '',
+            comumtwo = '',
+            instagram = '',
+            linkedin = '',
+            youtube = '',
+        }: UserCreateData
+    ) {
+        await prisma.user.update({
+            where: {
+                id
+            },
+            data: {
+                name,
+                area,
+                avatar,
+                comumone,
+                description,
+                email,
+                gas,
+                github,
+                nickname,
+                seniority,
+                comumthree,
+                comumtwo,
+                instagram,
+                linkedin,
+                youtube,
+            }
+        })
+
+    }
 }

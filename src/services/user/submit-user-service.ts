@@ -94,12 +94,84 @@ export class SubmitUserService {
     }
 
     async executeLogin(id: string) {
-        if(!id) {
+        if (!id) {
             throw new Error('Email is required!')
         }
 
         const user = await this.usersRepository.login(id)
 
         return user
+    }
+
+    async executeUpdate(id: string, request: SubmitUserServiceRequest) {
+        const {
+            area,
+            avatar,
+            comumone,
+            description,
+            email,
+            gas,
+            github,
+            name,
+            nickname,
+            seniority,
+            comumthree,
+            comumtwo,
+            instagram,
+            linkedin,
+            youtube
+        } = request
+
+        if (!name) {
+            throw new Error('Name is required!')
+        }
+
+        if (!area) {
+            throw new Error('Area is required!')
+        }
+
+        if (!comumone) {
+            throw new Error('Choose a community!')
+        }
+
+        if (!description) {
+            throw new Error('Description is required!')
+        }
+
+        if (!email) {
+            throw new Error('Email is required!')
+        }
+
+        if (!github) {
+            throw new Error('Github is required!')
+        }
+
+        if (!nickname) {
+            throw new Error('Nickname is required!')
+        }
+
+        if (!seniority) {
+            throw new Error('Seniority is required!')
+        }
+
+        await this.usersRepository.update(
+            id,
+            {
+                area,
+                avatar,
+                comumone,
+                description,
+                email,
+                gas,
+                github,
+                name,
+                nickname,
+                seniority,
+                comumthree,
+                comumtwo,
+                instagram,
+                linkedin,
+                youtube
+            })
     }
 }
