@@ -20,4 +20,5 @@ export interface Users{
     create: (data: UserCreateData) => Promise<void>
     login: (id: string) => Promise<UserCreateData | null>
     update: (id: string, date: UserCreateData) => Promise<void>
+    searchByComum: (comum: string) => Promise<UserCreateData[]>
 }

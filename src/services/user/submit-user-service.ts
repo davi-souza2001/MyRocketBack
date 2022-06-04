@@ -174,4 +174,14 @@ export class SubmitUserService {
                 youtube
             })
     }
+
+    async executeSearchByComum(comum: string) {
+        if (!comum) {
+            throw new Error('Community is required!')
+        }
+
+        const users = await this.usersRepository.searchByComum(comum)
+
+        return users
+    }
 }

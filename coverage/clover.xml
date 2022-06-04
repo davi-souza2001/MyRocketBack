@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654348267470" clover="3.2.0">
-  <project timestamp="1654348267470" name="All files">
-    <metrics statements="177" coveredstatements="177" conditionals="35" coveredconditionals="35" methods="4" coveredmethods="4" elements="216" coveredelements="216" complexity="0" loc="177" ncloc="177" packages="1" files="1" classes="1"/>
+<coverage generated="1654350961857" clover="3.2.0">
+  <project timestamp="1654350961857" name="All files">
+    <metrics statements="187" coveredstatements="187" conditionals="37" coveredconditionals="37" methods="5" coveredmethods="5" elements="229" coveredelements="229" complexity="0" loc="187" ncloc="187" packages="1" files="1" classes="1"/>
     <file name="submit-user-service.ts" path="C:\Users\MICRO\Downloads\1Programation\1Projects\MyRocketBack\src\services\user\submit-user-service.ts">
-      <metrics statements="177" coveredstatements="177" conditionals="35" coveredconditionals="35" methods="4" coveredmethods="4"/>
+      <metrics statements="187" coveredstatements="187" conditionals="37" coveredconditionals="37" methods="5" coveredmethods="5"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -181,6 +181,16 @@
       <line num="175" count="1" type="stmt"/>
       <line num="176" count="1" type="stmt"/>
       <line num="177" count="1" type="stmt"/>
+      <line num="178" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="179" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="180" count="1" type="stmt"/>
+      <line num="181" count="1" type="stmt"/>
+      <line num="182" count="1" type="stmt"/>
+      <line num="183" count="1" type="stmt"/>
+      <line num="184" count="1" type="stmt"/>
+      <line num="185" count="1" type="stmt"/>
+      <line num="186" count="1" type="stmt"/>
+      <line num="187" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

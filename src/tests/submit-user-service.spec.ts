@@ -3,12 +3,14 @@ import { SubmitUserService } from '../services/user/submit-user-service';
 const createFeedbackSpy = jest.fn();
 const createLoginSpy = jest.fn();
 const createUpdateSpy = jest.fn();
+const createSearchComumSpy = jest.fn();
 
 const submitUser = new SubmitUserService(
     {
         create: createFeedbackSpy,
         login: createLoginSpy,
-        update: createUpdateSpy
+        update: createUpdateSpy,
+        searchByComum: createSearchComumSpy
     }
 )
 
@@ -220,7 +222,7 @@ describe('Tests for user login', () => {
     })
 })
 
-describe('Tests from user submit update', () => {
+describe('Tests for user submit update', () => {
     it('Should be able to submit a user update', async () => {
 
         await expect(submitUser.executeUpdate(
@@ -428,5 +430,19 @@ describe('Tests from user submit update', () => {
                 linkedin: 'generic',
                 youtube: 'generic'
             })).rejects.toThrow();
+    })
+})
+
+describe('Tests to search for user', () => {
+    it('Should be able to search a user', async () => {
+
+        await expect(submitUser.executeSearchByComum('react')).resolves.not.toThrow();
+
+        expect(createSearchComumSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to search a user without community', async () => {
+
+        await expect(submitUser.executeSearchByComum('')).rejects.toThrow();
     })
 })

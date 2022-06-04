@@ -93,4 +93,24 @@ export class PrismaUsers implements Users {
         })
 
     }
+
+    async searchByComum(comum: string) {
+        const users = await prisma.user.findMany({
+            where: {
+                OR: [
+                    {
+                        comumone: comum
+                    },
+                    {
+                        comumtwo: comum
+                    },
+                    {
+                        comumthree: comum
+                    }
+                ]
+            }
+        })
+
+        return users
+    }
 }
