@@ -11,7 +11,7 @@ model User {
   id String @id @default(uuid())
 
   name        String
-  nickname    String
+  nickname    String @unique
   email       String @unique
   seniority   String
   area        String
@@ -20,7 +20,7 @@ model User {
   comumthree  String
   description String
   linkedin    String
-  github      String
+  github      String @unique
   youtube     String
   instagram   String
   avatar      String

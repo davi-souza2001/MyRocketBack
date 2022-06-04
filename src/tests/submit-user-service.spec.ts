@@ -4,13 +4,15 @@ const createFeedbackSpy = jest.fn();
 const createLoginSpy = jest.fn();
 const createUpdateSpy = jest.fn();
 const createSearchComumSpy = jest.fn();
+const createSearchNickSpy = jest.fn();
 
 const submitUser = new SubmitUserService(
     {
         create: createFeedbackSpy,
         login: createLoginSpy,
         update: createUpdateSpy,
-        searchByComum: createSearchComumSpy
+        searchByComum: createSearchComumSpy,
+        searchByNick: createSearchNickSpy
     }
 )
 
@@ -433,7 +435,7 @@ describe('Tests for user submit update', () => {
     })
 })
 
-describe('Tests to search for user', () => {
+describe('Tests to search for user by comum', () => {
     it('Should be able to search a user', async () => {
 
         await expect(submitUser.executeSearchByComum('react')).resolves.not.toThrow();
@@ -444,5 +446,19 @@ describe('Tests to search for user', () => {
     it('Should not be able to search a user without community', async () => {
 
         await expect(submitUser.executeSearchByComum('')).rejects.toThrow();
+    })
+})
+
+describe('Tests to search for user by nick', () => {
+    it('Should be able to search a user', async () => {
+
+        await expect(submitUser.executeSearchByNickname('react')).resolves.not.toThrow();
+
+        expect(createSearchNickSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to search a user without nick', async () => {
+
+        await expect(submitUser.executeSearchByNickname('')).rejects.toThrow();
     })
 })

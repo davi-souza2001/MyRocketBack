@@ -122,7 +122,7 @@ routes.post('/user/update', async (req, res) => {
     }
 })
 
-routes.post('/user/search', async (req, res) => {
+routes.post('/user/searchbycomum', async (req, res) => {
     const { comum } = req.body
 
     const prismaUsers = new PrismaUsers()
@@ -133,6 +133,24 @@ routes.post('/user/search', async (req, res) => {
         const users = await submitUserService.executeSearchByComum(comum)
 
         return res.status(200).json(users)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})
+
+routes.post('/user/searchbynick', async (req, res) => {
+    const { nickname } = req.body
+
+    const prismaUsers = new PrismaUsers()
+
+    const submitUserService = new SubmitUserService(prismaUsers)
+
+    try {
+        const user = await submitUserService.executeSearchByNickname(nickname)
+
+        return res.status(200).json(user)
+        
     } catch (error: any) {
 
         return res.status(401).json({ message: error.message })

@@ -184,4 +184,14 @@ export class SubmitUserService {
 
         return users
     }
+
+    async executeSearchByNickname(nickname: string) {
+        if(!nickname) {
+            throw new Error('Nickname is required!')
+        }
+
+        const user = await this.usersRepository.searchByNick(nickname)
+
+        return user
+    }
 }

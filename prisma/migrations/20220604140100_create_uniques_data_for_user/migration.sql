@@ -1,0 +1,12 @@
+/*
+  Warnings:
+
+  - A unique constraint covering the columns `[nickname]` on the table `users` will be added. If there are existing duplicate values, this will fail.
+  - A unique constraint covering the columns `[github]` on the table `users` will be added. If there are existing duplicate values, this will fail.
+
+*/
+-- CreateIndex
+CREATE UNIQUE INDEX "users_nickname_key" ON "users"("nickname");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_github_key" ON "users"("github");
