@@ -36,3 +36,20 @@ routesPost.post('/post/create', async (req, res) => {
         return res.status(401).json({ message: error.message })
     }
 })
+
+routesPost.post('/post/getByComum', async (req, res) => {
+    const { tech } = req.body
+
+    const prismaPosts = new PrismaPosts()
+
+    const submitPostService = new SubmitPostService(prismaPosts)
+
+    try {
+        const posts = await submitPostService.executeGetByComum(tech)
+
+        return res.status(200).json(posts)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})

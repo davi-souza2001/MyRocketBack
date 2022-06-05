@@ -23,4 +23,14 @@ export class PrismaPosts implements Posts {
             }
         })
     }
+
+    async getByComum(tech: string) {
+        const posts = await prisma.post.findMany({
+            where: {
+                tech
+            }
+        })
+
+        return posts
+    }
 }
