@@ -1,10 +1,10 @@
 import express from 'express'
-import { PrismaUsers } from './repositories/prisma/prisma-users'
-import { SubmitUserService } from './services/user/submit-user-service'
+import { PrismaUsers } from '../repositories/prisma/prisma-users'
+import { SubmitUserService } from '../services/user/submit-user-service'
 
-export const routes = express.Router()
+export const routesUser = express.Router()
 
-routes.post('/user/create', async (req, res) => {
+routesUser.post('/user/create', async (req, res) => {
     const {
         area,
         avatar,
@@ -53,7 +53,7 @@ routes.post('/user/create', async (req, res) => {
     }
 })
 
-routes.post('/user/login', async (req, res) => {
+routesUser.post('/user/login', async (req, res) => {
     const { id } = req.body
 
     const prismaUsers = new PrismaUsers()
@@ -70,7 +70,7 @@ routes.post('/user/login', async (req, res) => {
     }
 })
 
-routes.post('/user/update', async (req, res) => {
+routesUser.post('/user/update', async (req, res) => {
     const { id } = req.body
     const {
         area,
@@ -122,7 +122,7 @@ routes.post('/user/update', async (req, res) => {
     }
 })
 
-routes.post('/user/searchbycomum', async (req, res) => {
+routesUser.post('/user/searchbycomum', async (req, res) => {
     const { comum } = req.body
 
     const prismaUsers = new PrismaUsers()
@@ -139,7 +139,7 @@ routes.post('/user/searchbycomum', async (req, res) => {
     }
 })
 
-routes.post('/user/searchbynick', async (req, res) => {
+routesUser.post('/user/searchbynick', async (req, res) => {
     const { nickname } = req.body
 
     const prismaUsers = new PrismaUsers()

@@ -1,4 +1,3 @@
-import { PrismaUsers } from "../../repositories/prisma/prisma-users"
 import { Users } from '../../repositories/users'
 interface SubmitUserServiceRequest {
     name: string

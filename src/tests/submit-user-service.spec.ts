@@ -16,7 +16,7 @@ const submitUser = new SubmitUserService(
     }
 )
 
-describe('Tests for user submit user', () => {
+describe('Tests for submit a new user', () => {
 
     it('Should be able to submit a user', async () => {
 
