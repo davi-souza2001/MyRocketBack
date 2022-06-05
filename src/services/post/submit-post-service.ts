@@ -60,12 +60,22 @@ export class SubmitPostService {
         })
     }
 
-    async executeGetByComum(tech: string){
-        if(!tech){
+    async executeGetByComum(tech: string) {
+        if (!tech) {
             throw new Error('Tech is required!')
         }
 
         const posts = await this.postRepository.getByComum(tech)
+
+        return posts
+    }
+
+    async executeGetPostsMoreLike(tech: string) {
+        if (!tech) {
+            throw new Error('Tech is required!')
+        }
+
+        const posts = await this.postRepository.getPostsMoreLike(tech)
 
         return posts
     }

@@ -33,4 +33,21 @@ export class PrismaPosts implements Posts {
 
         return posts
     }
+
+    async getPostsMoreLike(tech: string) {
+        const postsMoreLike = await prisma.post.findMany({
+            where: {
+                NOT: {
+                    likes: {}
+                },
+                tech
+            },
+            orderBy: {
+                likes: 'desc'
+            },
+            take: 3
+        })
+
+        return postsMoreLike
+    }
 }

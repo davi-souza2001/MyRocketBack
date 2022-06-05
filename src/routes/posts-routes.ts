@@ -53,3 +53,20 @@ routesPost.post('/post/getByComum', async (req, res) => {
         return res.status(401).json({ message: error.message })
     }
 })
+
+routesPost.post('/post/getPostsMoreLike', async (req, res) => {
+    const { tech } = req.body
+
+    const prismaPosts = new PrismaPosts()
+
+    const submitPostService = new SubmitPostService(prismaPosts)
+
+    try {
+        const postsMoreLikes = await submitPostService.executeGetPostsMoreLike(tech)
+
+        return res.status(200).json(postsMoreLikes)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})

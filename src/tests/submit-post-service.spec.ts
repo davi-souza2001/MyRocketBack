@@ -2,11 +2,13 @@ import { SubmitPostService } from '../services/post/submit-post-service';
 
 const createPostSpy = jest.fn();
 const getByComumPostSpy = jest.fn();
+const getPostsMoreLikeSpy = jest.fn();
 
 const submitPost = new SubmitPostService(
     {
         create: createPostSpy,
         getByComum: getByComumPostSpy,
+        getPostsMoreLike: getPostsMoreLikeSpy
     }
 )
 
@@ -118,6 +120,22 @@ describe('Tests for get a posts by community', () => {
     it('Should not be able to get posts without tech', async () => {
 
         await expect(submitPost.executeGetByComum(''))
+        .rejects.toThrow();
+    })
+})
+
+describe('Tests for get posts more like', () => {
+    it('Should be able to get posts', async () => {
+
+        await expect(submitPost.executeGetPostsMoreLike('example'))
+        .resolves.not.toThrow();
+
+        expect(getPostsMoreLikeSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to get posts without tech', async () => {
+
+        await expect(submitPost.executeGetPostsMoreLike(''))
         .rejects.toThrow();
     })
 })
