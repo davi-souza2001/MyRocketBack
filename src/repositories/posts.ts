@@ -10,6 +10,6 @@ export interface PostsCreateData {
 
 export interface Posts{
     create: (data: PostsCreateData) => Promise<void>
-    getByComum: (tech: string) => Promise<any>
-    getPostsMoreLike: (tech: string) => Promise<any>
+    getByComum: (tech: string) => Promise<Array<any> | null>
+    getPostsMoreLike: (tech: string) => Promise<Array<any> | null>
 }
