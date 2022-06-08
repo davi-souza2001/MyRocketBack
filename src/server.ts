@@ -11,5 +11,5 @@ app.use(routesUser)
 app.use(routesPost)
 
 app.listen(process.env.PORT || 3333, () => {
-    console.log('Server Running!');
+    console.log(`Server Running in ${process.env.PORT || 3333}!`);
 });
