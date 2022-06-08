@@ -73,7 +73,7 @@ export class SubmitUserService {
             throw new Error('Seniority is required!')
         }
 
-        await this.usersRepository.create({
+        const user = await this.usersRepository.create({
             area,
             avatar,
             comumone,
@@ -90,6 +90,8 @@ export class SubmitUserService {
             linkedin,
             youtube
         })
+
+        return user
     }
 
     async executeLogin(id: string) {

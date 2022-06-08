@@ -5,6 +5,7 @@ const createLoginSpy = jest.fn();
 const createUpdateSpy = jest.fn();
 const createSearchComumSpy = jest.fn();
 const createSearchNickSpy = jest.fn();
+const createGetUserByEmailNickSpy = jest.fn();
 
 const submitUser = new SubmitUserService(
     {
@@ -12,7 +13,8 @@ const submitUser = new SubmitUserService(
         login: createLoginSpy,
         update: createUpdateSpy,
         searchByComum: createSearchComumSpy,
-        searchByNick: createSearchNickSpy
+        searchByNick: createSearchNickSpy,
+        getUserByEmail: createGetUserByEmailNickSpy
     }
 )
 
@@ -460,5 +462,19 @@ describe('Tests to search for user by nick', () => {
     it('Should not be able to search a user without nick', async () => {
 
         await expect(submitUser.executeSearchByNickname('')).rejects.toThrow();
+    })
+})
+
+describe('Tests to get user by email', () => {
+    it('Should be able to submit a user', async () => {
+
+        await expect(submitUser.executaGetUserByEmail('example')).resolves.not.toThrow();
+
+        expect(createGetUserByEmailNickSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to submit a user without email', async () => {
+
+        await expect(submitUser.executaGetUserByEmail('')).rejects.toThrow();
     })
 })

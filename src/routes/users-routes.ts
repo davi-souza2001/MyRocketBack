@@ -28,7 +28,7 @@ routesUser.post('/user/create', async (req, res) => {
     const submitUserService = new SubmitUserService(prismaUsers)
 
     try {
-        await submitUserService.executeCreate({
+        const user = await submitUserService.executeCreate({
             area,
             avatar,
             comumone,
@@ -46,7 +46,7 @@ routesUser.post('/user/create', async (req, res) => {
             youtube
         })
 
-        return res.status(200).json({ message: 'User created!' })
+        return res.status(200).json(user)
     } catch (error: any) {
 
         return res.status(401).json({ message: error.message })

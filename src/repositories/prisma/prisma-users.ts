@@ -19,7 +19,7 @@ export class PrismaUsers implements Users {
         linkedin = '',
         youtube = '',
     }: UserCreateData) {
-        await prisma.user.create({
+        const user = await prisma.user.create({
             data: {
                 name,
                 area,
@@ -38,6 +38,8 @@ export class PrismaUsers implements Users {
                 youtube,
             }
         })
+
+        return user
     }
 
     async login(id: string) {
