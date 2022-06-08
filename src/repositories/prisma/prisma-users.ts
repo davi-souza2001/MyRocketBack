@@ -114,11 +114,21 @@ export class PrismaUsers implements Users {
         return users
     }
 
-    async searchByNick(nickname: string): Promise<UserCreateData| null> {
-        
+    async searchByNick(nickname: string): Promise<UserCreateData | null> {
+
         const user: UserCreateData | null = await prisma.user.findFirst({
             where: {
                 nickname
+            }
+        })
+
+        return user
+    }
+
+    async getUserByEmail(email: string) {
+        const user = await prisma.user.findUnique({
+            where: {
+                email
             }
         })
 

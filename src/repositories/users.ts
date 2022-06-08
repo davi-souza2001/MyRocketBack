@@ -20,6 +20,7 @@ export interface Users{
     create: (data: UserCreateData) => Promise<void>
     login: (id: string) => Promise<UserCreateData | null>
     update: (id: string, date: UserCreateData) => Promise<void>
+    getUserByEmail: (email: string) => Promise<UserCreateData | null>
     searchByComum: (comum: string) => Promise<UserCreateData[]>
     searchByNick: (nickname: string) => Promise<UserCreateData | null>
 }

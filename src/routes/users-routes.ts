@@ -70,6 +70,23 @@ routesUser.post('/user/login', async (req, res) => {
     }
 })
 
+routesUser.post('/user/getUserByEmail', async (req, res) => {
+    const { email } = req.body
+
+    const prismaUsers = new PrismaUsers()
+
+    const submitUserService = new SubmitUserService(prismaUsers)
+
+    try {
+        const user = await submitUserService.executaGetUserByEmail(email)
+
+        return res.status(200).json(user)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})
+
 routesUser.post('/user/update', async (req, res) => {
     const { id } = req.body
     const {
