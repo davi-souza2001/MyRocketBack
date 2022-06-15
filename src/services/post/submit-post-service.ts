@@ -79,4 +79,12 @@ export class SubmitPostService {
 
         return posts
     }
+
+    async executeDelete(id: string) {
+        if (!id) {
+            throw new Error('Id is required!')
+        }
+
+        await this.postRepository.delete(id)
+    }
 }

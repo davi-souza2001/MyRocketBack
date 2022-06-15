@@ -70,3 +70,20 @@ routesPost.post('/post/getPostsMoreLike', async (req, res) => {
         return res.status(401).json({ message: error.message })
     }
 })
+
+routesPost.post('/post/delete', async (req, res) => {
+    const { id } = req.body
+
+    const prismaPosts = new PrismaPosts()
+
+    const submitPostService = new SubmitPostService(prismaPosts)
+
+    try {
+        await submitPostService.executeDelete(id)
+
+        return res.status(200).json({message: 'Post Deleted!'})
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})

@@ -3,12 +3,14 @@ import { SubmitPostService } from '../services/post/submit-post-service';
 const createPostSpy = jest.fn();
 const getByComumPostSpy = jest.fn();
 const getPostsMoreLikeSpy = jest.fn();
+const deletePostSpy = jest.fn();
 
 const submitPost = new SubmitPostService(
     {
         create: createPostSpy,
         getByComum: getByComumPostSpy,
-        getPostsMoreLike: getPostsMoreLikeSpy
+        getPostsMoreLike: getPostsMoreLikeSpy,
+        delete: deletePostSpy,
     }
 )
 
@@ -112,7 +114,7 @@ describe('Tests for get a posts by community', () => {
     it('Should be able to get posts', async () => {
 
         await expect(submitPost.executeGetByComum('example'))
-        .resolves.not.toThrow();
+            .resolves.not.toThrow();
 
         expect(getByComumPostSpy).toHaveBeenCalled();
     })
@@ -120,7 +122,7 @@ describe('Tests for get a posts by community', () => {
     it('Should not be able to get posts without tech', async () => {
 
         await expect(submitPost.executeGetByComum(''))
-        .rejects.toThrow();
+            .rejects.toThrow();
     })
 })
 
@@ -128,7 +130,7 @@ describe('Tests for get posts more like', () => {
     it('Should be able to get posts', async () => {
 
         await expect(submitPost.executeGetPostsMoreLike('example'))
-        .resolves.not.toThrow();
+            .resolves.not.toThrow();
 
         expect(getPostsMoreLikeSpy).toHaveBeenCalled();
     })
@@ -136,6 +138,22 @@ describe('Tests for get posts more like', () => {
     it('Should not be able to get posts without tech', async () => {
 
         await expect(submitPost.executeGetPostsMoreLike(''))
-        .rejects.toThrow();
+            .rejects.toThrow();
+    })
+})
+
+describe('Teste for delete a post', () => {
+    it('Should be able to delete post', async () => {
+
+        await expect(submitPost.executeDelete('example'))
+            .resolves.not.toThrow();
+
+        expect(deletePostSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to delete post without id', async () => {
+
+        await expect(submitPost.executeDelete(''))
+            .rejects.toThrow();
     })
 })

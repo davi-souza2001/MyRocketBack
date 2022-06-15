@@ -12,4 +12,5 @@ export interface Posts{
     create: (data: PostsCreateData) => Promise<void>
     getByComum: (tech: string) => Promise<Array<any> | null>
     getPostsMoreLike: (tech: string) => Promise<Array<any> | null>
+    delete: (id: string) => Promise<void>
 }

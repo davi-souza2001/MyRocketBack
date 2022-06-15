@@ -50,4 +50,12 @@ export class PrismaPosts implements Posts {
 
         return postsMoreLike
     }
+
+    async delete(id: string) {
+        await prisma.post.delete({
+            where: {
+                id
+            }
+        })
+    }
 }
