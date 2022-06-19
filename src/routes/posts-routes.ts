@@ -1,6 +1,8 @@
 import express from 'express'
 import { PrismaPosts } from '../repositories/prisma/prisma-posts'
 import { SubmitPostService } from '../services/post/submit-post-service'
+import { prisma } from '../prisma'
+import { UserCreateData } from '../repositories/users'
 
 export const routesPost = express.Router()
 
@@ -19,21 +21,74 @@ routesPost.post('/post/create', async (req, res) => {
 
     const submitPostService = new SubmitPostService(prismaPosts)
 
-    try {
-        await submitPostService.executeCreate({
-            avatar,
-            content,
-            email,
-            likes,
-            tech,
-            userName,
-            userNick,
+    let newUser: UserCreateData = {
+        area: '',
+        avatar: '',
+        comumone: '',
+        description: '',
+        email: '',
+        gas: 0,
+        github: '',
+        nickname: '',
+        seniority: '',
+        name: ''
+    }
+
+    const user = await prisma.user.findUnique({
+        where: {
+            email
+        }
+    })
+
+
+    if (user && user.gas !== 0) {
+        newUser = {
+            area: user.area,
+            avatar: user.avatar,
+            comumone: user.comumone,
+            comumtwo: user.comumtwo,
+            comumthree: user.comumthree,
+            description: user.description,
+            email: user.email,
+            github: user.github,
+            instagram: user.instagram,
+            linkedin: user.linkedin,
+            name: user.name,
+            nickname: user.nickname,
+            seniority: user.seniority,
+            youtube: user.youtube,
+            gas: user.gas,
+        }
+
+        newUser.gas = newUser.gas === 0 ? 0 : newUser.gas - 1
+
+        await prisma.user.update({
+            where: {
+                email
+            },
+            data: newUser
         })
+    }
 
-        return res.status(200).json({ message: 'Post created!' })
-    } catch (error: any) {
+    if (user && user.gas !== 0) {
+        try {
+            await submitPostService.executeCreate({
+                avatar,
+                content,
+                email,
+                likes,
+                tech,
+                userName,
+                userNick,
+            })
 
-        return res.status(401).json({ message: error.message })
+            return res.status(200).json({ message: 'Post created!' })
+        } catch (error: any) {
+
+            return res.status(401).json({ message: error.message })
+        }
+    } else{
+        return res.status(401).json({ message: 'User without gas!' })
     }
 })
 
@@ -81,7 +136,7 @@ routesPost.post('/post/delete', async (req, res) => {
     try {
         await submitPostService.executeDelete(id)
 
-        return res.status(200).json({message: 'Post Deleted!'})
+        return res.status(200).json({ message: 'Post Deleted!' })
     } catch (error: any) {
 
         return res.status(401).json({ message: error.message })
