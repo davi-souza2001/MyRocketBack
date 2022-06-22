@@ -5,3 +5,7 @@ export interface EmailData{
     html: string
     text: string
 }
+
+export interface Email{
+    sendEmail: (email: EmailData) => Promise<void>
+}
