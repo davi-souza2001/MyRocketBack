@@ -1,10 +1,13 @@
 import express from 'express'
 import { PrismaEmails } from '../repositories/prisma/prisma-email'
 import { SubmitEmailService } from '../services/email/submit-email-service'
+import { emailWelcome } from '../utils/emailsTemplates'
 
 export const routesEmail = express.Router()
 
 routesEmail.post('/email/sendEmailForCreateNewAccount', async (req, res) => {
+
+    const { toEmail } = req.body
 
     const email = new PrismaEmails()
 
@@ -14,10 +17,10 @@ routesEmail.post('/email/sendEmailForCreateNewAccount', async (req, res) => {
 
         await submitEmailService.executeSend({
             from: process.env.EMAIL_TO as string,
-            html: 'asd',
-            subject: 'asd',
-            text: 'asd',
-            to: 'teste@gmail.com'
+            html: emailWelcome,
+            subject: 'Welcoma aboard!',
+            text: 'error',
+            to: toEmail
         })
 
         return res.status(200).json({ message: 'Enviou!' })
