@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-import { Email, EmailData } from '../../utils/email'
+import { Email, EmailData } from '../email'
 
 export class PrismaEmails implements Email {
 

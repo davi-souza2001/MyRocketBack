@@ -1,4 +1,4 @@
-export interface EmailData{
+export interface EmailData {
     from: string
     to: string
     subject: string
@@ -6,6 +6,6 @@ export interface EmailData{
     text: string
 }
 
-export interface Email{
+export interface Email {
     sendEmail: (email: EmailData) => Promise<void>
 }

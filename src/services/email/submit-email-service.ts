@@ -1,4 +1,4 @@
-import { Email } from '../../utils/email'
+import { Email } from '../../repositories/email'
 
 export interface SubmitEmailServiceRequest {
     from: string
