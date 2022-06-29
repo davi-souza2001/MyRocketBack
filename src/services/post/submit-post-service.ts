@@ -1,4 +1,4 @@
-import { Posts } from '../../repositories/posts'
+import { Posts, PostsCreateData } from '../../repositories/posts'
 interface SubmitPostServiceRequest {
     content: string
     userName: string
@@ -6,7 +6,7 @@ interface SubmitPostServiceRequest {
     email: string
     tech: string
     avatar: string
-    likes: object
+    likes: number
 }
 
 export class SubmitPostService {
@@ -78,6 +78,18 @@ export class SubmitPostService {
         const posts = await this.postRepository.getPostsMoreLike(tech)
 
         return posts
+    }
+
+    async executeGiveLike(id: string, post: PostsCreateData, like: number) {
+        if (!id) {
+            throw new Error('Id is required!')
+        }
+
+        if (!like) {
+            throw new Error('Like is required!')
+        }
+
+        await this.postRepository.giveLike(id, post, like)
     }
 
     async executeDelete(id: string) {

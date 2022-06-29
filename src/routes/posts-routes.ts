@@ -87,7 +87,7 @@ routesPost.post('/post/create', async (req, res) => {
 
             return res.status(401).json({ message: error.message })
         }
-    } else{
+    } else {
         return res.status(401).json({ message: 'User without gas!' })
     }
 })
@@ -120,6 +120,45 @@ routesPost.post('/post/getPostsMoreLike', async (req, res) => {
         const postsMoreLikes = await submitPostService.executeGetPostsMoreLike(tech)
 
         return res.status(200).json(postsMoreLikes)
+    } catch (error: any) {
+
+        return res.status(401).json({ message: error.message })
+    }
+})
+
+routesPost.post('/post/giveLike', async (req, res) => {
+    const {
+        id,
+        like,
+        avatar,
+        content,
+        email,
+        tech,
+        userName,
+        userNick,
+        likes,
+    } = req.body
+
+    const prismaPosts = new PrismaPosts()
+
+    const submitPostService = new SubmitPostService(prismaPosts)
+
+    try {
+        await submitPostService.executeGiveLike(
+            id,
+            {
+                avatar,
+                content,
+                email,
+                tech,
+                userName,
+                userNick,
+                likes
+            },
+            like
+        )
+
+        return res.status(200).json({ message: 'Like gived!' })
     } catch (error: any) {
 
         return res.status(401).json({ message: error.message })

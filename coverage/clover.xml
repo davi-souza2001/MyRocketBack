@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655930939761" clover="3.2.0">
-  <project timestamp="1655930939761" name="All files">
-    <metrics statements="298" coveredstatements="298" conditionals="60" coveredconditionals="60" methods="12" coveredmethods="12" elements="370" coveredelements="370" complexity="0" loc="298" ncloc="298" packages="2" files="2" classes="2"/>
+<coverage generated="1656538565238" clover="3.2.0">
+  <project timestamp="1656538565239" name="All files">
+    <metrics statements="310" coveredstatements="310" conditionals="64" coveredconditionals="64" methods="13" coveredmethods="13" elements="387" coveredelements="387" complexity="0" loc="310" ncloc="310" packages="2" files="2" classes="2"/>
     <package name="post">
-      <metrics statements="90" coveredstatements="90" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
+      <metrics statements="102" coveredstatements="102" conditionals="23" coveredconditionals="23" methods="6" coveredmethods="6"/>
       <file name="submit-post-service.ts" path="C:\Users\MICRO\Downloads\1Programation\1Projects\MyRocketGeral\MyRocketBack\src\services\post\submit-post-service.ts">
-        <metrics statements="90" coveredstatements="90" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
+        <metrics statements="102" coveredstatements="102" conditionals="23" coveredconditionals="23" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -89,13 +89,25 @@
         <line num="81" count="1" type="stmt"/>
         <line num="82" count="1" type="stmt"/>
         <line num="83" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="84" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="84" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="85" count="1" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
+        <line num="87" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="88" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="89" count="1" type="stmt"/>
         <line num="90" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="96" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
       </file>
     </package>
     <package name="user">
