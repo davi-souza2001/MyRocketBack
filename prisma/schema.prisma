@@ -37,7 +37,7 @@ model Post{
   email String
   tech String
   avatar String
-  likes Json
+  likes Int
 
   @@map("posts")
 }
